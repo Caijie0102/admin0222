@@ -1,0 +1,131 @@
+﻿@model admin0222.Models.table_Member
+@{
+    ViewBag.Title = "Register";
+    Layout = null;
+
+}
+
+
+@using (Html.BeginForm())
+
+{
+    @Html.AntiForgeryToken()
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>SB Admin 2 - Register</title>
+
+        <!-- Custom fonts for this template-->
+        <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+              rel="stylesheet">
+        <link href="~/Content/sb-admin-2.min.css" rel="stylesheet">
+        <!-- Custom styles for this template-->
+        <link href="css/sb-admin-2.min.css" rel="stylesheet">
+
+    </head>
+
+    <body class="bg-gradient-primary" style="background-color: #aef6ffe3; background-image: linear-gradient(180deg,#cbf9ffe3 10%,#a4eef8 100%) ">
+
+        <div class="container">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="card o-hidden border-0 shadow-lg my-5">
+                <div class="card-body p-0">
+                    <!-- Nested Row within Card Body -->
+                    <div class="row">
+                        <img src="~/image/a1.jpg" width="420px" height="520px" />
+
+                        <div class="col-lg-7">
+                            <div class="p-5">
+                                <div class="text-center">
+                                    <h1 class="h4 text-gray-900 mb-4">創建一個帳戶!</h1>
+                                </div>
+                                <form class="user">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control form-control-user" id="UserId" name="UserId"
+                                               placeholder="帳號">
+
+                                        @Html.ValidationMessageFor(model => model.UserId, "", new { @class = "text-danger" })
+                                    </div>
+
+                                
+                                    <div class="form-group">
+                                        <input type="text" class="form-control form-control-user" id="Password" name="Password"
+                                               placeholder="密碼">
+
+                                        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                                    </div>
+
+                                    <div class="form-group">
+                                        <input type="text" class="form-control form-control-user" id="Name" name="Name"
+                                               placeholder="姓名">
+
+                                        @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="email" class="form-control form-control-user" id="Email" name="Email"
+                                               placeholder="信箱">
+
+                                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                                    </div>
+
+                                    <div class="form-group">
+
+                                        <input type="submit" value="註冊" class="btn btn-primary btn-user btn-block" style="background-color: #87cefa; border-color: #87cefa" />
+                                        @ViewBag.Message
+
+                                    </div>
+
+
+
+
+                                </form>
+                                <hr>
+                                
+                                <div class="text-center">
+                                    <a class="small" href="/Home/Login" style="color: #72c2f7">已經有帳號? 登入!</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Bootstrap core JavaScript-->
+        <script src="vendor/jquery/jquery.min.js"></script>
+        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+        <!-- Core plugin JavaScript-->
+        <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+        <!-- Custom scripts for all pages-->
+        <script src="js/sb-admin-2.min.js"></script>
+        <script src="~/Scripts/vendor/jquery/jquery.min.js"></script>
+        <script src="~/Scripts/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+        <script src="~/Scripts/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+        <script src="~/Scripts/js/sb-admin-2.min.js"></script>
+
+        <script src="~/Scripts/vendor/chart.js/Chart.min.js"></script>
+
+        <script src="~/Scripts/js/demo/chart-area-demo.js"></script>
+        <script src="~/Scripts/js/demo/chart-pie-demo.js"></script>
+
+
+    </body>
+
+</html>
+
+}
+
