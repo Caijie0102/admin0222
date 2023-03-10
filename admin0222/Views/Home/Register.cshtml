@@ -48,31 +48,42 @@
                                 <div class="text-center">
                                     <h1 class="h4 text-gray-900 mb-4">創建一個帳戶!</h1>
                                 </div>
-                                <form class="user">
+                                <form  onsubmit="return validate()" method="post" class="user">
                                     <div class="form-group">
                                         <input type="text" class="form-control form-control-user" id="UserId" name="UserId"
-                                               placeholder="帳號">
+                                               placeholder="帳號" required>
 
                                         @Html.ValidationMessageFor(model => model.UserId, "", new { @class = "text-danger" })
                                     </div>
+                                    
 
-                                
                                     <div class="form-group">
-                                        <input type="text" class="form-control form-control-user" id="Password" name="Password"
-                                               placeholder="密碼">
-
+                                        <input type="password" class="form-control form-control-user" id="Password" name="Password"
+                                               placeholder="密碼" required>
+                                        
                                         @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
                                     </div>
 
                                     <div class="form-group">
+                                        <input type="password" class="form-control form-control-user" id="Password2" name="Password2"
+                                               placeholder="再次確認密碼" onkeyup="validate()" required>
+                                        <div class="invalid-feedback">密碼不一致</div>
+                                        <!--加了一個 invalid-feedback 的類別，用於顯示驗證錯誤提示-->
+                                        <!--當驗證錯誤時，我們設定了自定義的驗證錯誤 passwordMismatch，用於後續驗證錯誤時判斷使用。-->
+
+
+                                    </div>
+
+
+                                    <div class="form-group">
                                         <input type="text" class="form-control form-control-user" id="Name" name="Name"
-                                               placeholder="姓名">
+                                               placeholder="姓名" required>
 
                                         @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
                                     </div>
                                     <div class="form-group">
                                         <input type="email" class="form-control form-control-user" id="Email" name="Email"
-                                               placeholder="信箱">
+                                               placeholder="信箱" required>
 
                                         @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
                                     </div>
@@ -100,6 +111,27 @@
             </div>
 
         </div>
+        <script >
+            document.getElementById("Password2").addEventListener("keyup", function () { //監聽了 password-confirm 輸入框的 keyup 事件
+                var password = document.getElementById("Password").value;
+                var password2 = this.value;
+                var feedback = this.nextElementSibling;
+                if (password === password2) {
+                    // 重置驗證狀態，顯示綠色勾勾
+                    this.setCustomValidity("");
+                    this.classList.add("is-valid");
+                    this.classList.remove("is-invalid");
+                    feedback.style.display = "none";
+                } else {
+                    // 設定驗證錯誤，顯示紅色叉叉
+                    this.setCustomValidity("passwordMismatch");
+                    this.classList.remove("is-valid");
+                    this.classList.add("is-invalid");
+                    feedback.style.display = "block";
+                }
+            });
+        </script>
+        
 
         <!-- Bootstrap core JavaScript-->
         <script src="vendor/jquery/jquery.min.js"></script>

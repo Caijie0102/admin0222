@@ -39,7 +39,9 @@ namespace admin0222.Controllers
 
                 return RedirectToAction("Login");
             }
+            
             ViewBag.Message = "帳號已被使用，請重新註冊";
+            
             return View();
         }
 
