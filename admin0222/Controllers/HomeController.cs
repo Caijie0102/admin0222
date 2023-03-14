@@ -45,13 +45,18 @@ namespace admin0222.Controllers
             return View();
         }
 
+        private readonly string COOKIE_NAME = "MyCookie"; // 定義 Cookie 名稱
+        private readonly int COOKIE_EXPIRY_MINUTES = 60; // 定義 Cookie 過期時間（分鐘）
+
+
         public ActionResult Login()
         {
             return View();
         }
 
         [HttpPost]
-        public ActionResult Login(string UserId, string Password)
+       
+        public ActionResult Login(string UserId, string Password, bool RememberMe = false)
         {
             //找出符合登入帳號與密碼的 Member資料
             var member = db.table_Member.Where(m => m.UserId == UserId && m.Password == Password).FirstOrDefault();
@@ -61,10 +66,20 @@ namespace admin0222.Controllers
                 return View();
             }
 
+            //Session["Welcome"] = $"{member.Name} 您好";
+
+            if (RememberMe)
+            {
+                // 設置持久性 Cookie
+                var cookie = new HttpCookie(COOKIE_NAME);
+                cookie.Values["UserId"] = member.UserId;
+                cookie.Values["Password"] = member.Password;
+                cookie.Expires = DateTime.Now.AddMinutes(COOKIE_EXPIRY_MINUTES);
+                Response.Cookies.Add(cookie);
+            }
+
             Session["Welcome"] = $"{member.Name} 您好";
-
-            FormsAuthentication.RedirectFromLoginPage(UserId, true);
-
+            
             return RedirectToAction("Index", "Member");
         }
 

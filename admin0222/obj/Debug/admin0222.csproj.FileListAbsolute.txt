@@ -89,3 +89,6 @@ C:\Users\N000188155\source\repos\admin0222\admin0222\bin\EntityFramework.SqlServ
 C:\Users\N000188155\source\repos\admin0222\admin0222\bin\EntityFramework.xml
 C:\Users\N000188155\source\repos\admin0222\admin0222\bin\EntityFramework.SqlServer.xml
 C:\Users\N000188155\source\repos\admin0222\admin0222\bin\zh-Hant\EntityFramework.resources.dll
+C:\Users\N000188155\source\repos\admin0222\admin0222\bin\System.Net.Http.Formatting.dll
+C:\Users\N000188155\source\repos\admin0222\admin0222\bin\System.Net.Http.Formatting.xml
+C:\Users\N000188155\source\repos\admin0222\admin0222\bin\zh-Hant\EntityFramework.SqlServer.resources.dll
