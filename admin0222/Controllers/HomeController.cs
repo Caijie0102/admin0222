@@ -66,7 +66,7 @@ namespace admin0222.Controllers
                 return View();
             }
 
-            //Session["Welcome"] = $"{member.Name} 您好";
+            Session["Welcome"] = $"{member.Name} 您好";
 
             if (RememberMe)
             {
@@ -78,10 +78,11 @@ namespace admin0222.Controllers
                 Response.Cookies.Add(cookie);
             }
 
-            Session["Welcome"] = $"{member.Name} 您好";
+            //Session["Welcome"] = $"{member.Name} 您好";
             
-            return RedirectToAction("Index", "Member");
+            return RedirectToAction("Index", "Home");
         }
+
 
         public ActionResult HomePage()
         {

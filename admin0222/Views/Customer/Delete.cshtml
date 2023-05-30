@@ -1,0 +1,45 @@
+﻿@model admin0222.Models.Customer
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h3>確認刪除這筆資料?</h3>
+<br/>
+<div>
+
+    
+    <h4>
+    <dl class="dl-horizontal">
+
+        <dt>
+            客戶公司名 : @Html.DisplayFor(model => model.Name)
+        </dt>
+   
+
+        <dt>
+            公司地址 : @Html.DisplayFor(model => model.Addrress)
+        </dt>
+ 
+
+        <dt>
+            公司聯絡電話 : @Html.DisplayFor(model => model.Tel)
+        </dt>
+
+
+        <dt>
+            公司統一編號 :  @Html.DisplayFor(model => model.Code)
+        </dt>
+     
+
+    </dl>
+        </h4>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Read")
+        </div>
+    }
+</div>

@@ -30,5 +30,6 @@ namespace admin0222.Models
         public virtual DbSet<table_OrderDetail> table_OrderDetail { get; set; }
         public virtual DbSet<table_Product> table_Product { get; set; }
         public virtual DbSet<table_Test> table_Test { get; set; }
+        public virtual DbSet<Customer> Customer { get; set; }
     }
 }
