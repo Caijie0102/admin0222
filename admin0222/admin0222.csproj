@@ -2077,6 +2077,7 @@
     <Content Include="Scripts\vendor\jquery\jquery.min.map" />
     <Content Include="Scripts\vendor\jquery\jquery.slim.min.map" />
     <Content Include="Views\Customer\Read2.cshtml" />
+    <Content Include="Views\Customer\detailed.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

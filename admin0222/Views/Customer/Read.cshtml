@@ -5,16 +5,15 @@
 
 
 <h2 style="display:inline">客戶資料</h2>
+<p style="display:inline">&emsp;        </p>
+
 <h3 style="display:inline">@Html.ActionLink("新增客戶", "Create")</h3>
-
-<a href="@Url.Action("Export", "Customer")" class="btn btn-success btn-icon-split">
-    <span class="icon text-white-50">
-        <i class='fas fa-file-export' style='font-size:18px'></i>
-    </span>
-    <span class="text">匯出成excel</span>
-</a>
+<p style="display:inline">&emsp;       </p>
 
 
+
+<p>   </p>
+<p>   </p>
 
 <table class="table">
     <tr>
@@ -50,11 +49,17 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Addrress)
-            </td>
+
             <td>
                 @Html.DisplayFor(modelItem => item.Tel)
+            </td>
+            <td>
+                @Html.ActionLink("編輯", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("詳細資訊", "detailed", new { id = item.Id }) |
+                @Html.ActionLink("刪除", "Delete", new { id = item.Id })
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Addrress)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Code)
@@ -62,11 +67,7 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Date)
             </td>
-            <td>
-                @Html.ActionLink("編輯", "Edit", new { id = item.Id }) |
-                @Html.ActionLink("詳細資訊", "Details", new { id = item.Id }) |
-                @Html.ActionLink("刪除", "Delete", new { id = item.Id })
-            </td>
+
         </tr>
     }
 

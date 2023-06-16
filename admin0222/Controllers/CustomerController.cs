@@ -16,14 +16,15 @@ namespace admin0222.Controllers
         public ActionResult Read()
         { //將所有會員資料顯示於清單
             var db = new dbShoppingCarEntities();
-            var members = db.Customer.OrderByDescending(m => m.Id).ToList();
+            var members = db.Customer.OrderBy(m => m.Id).ToList();
+            //var members = db.Customer.OrderBy(m => m.Id).ToList();
             return View(members);
         }
 
         public ActionResult Export()
         {
             var db = new dbShoppingCarEntities();//建立了一個連接的資料庫上下文物件
-            var customers = db.Customer.OrderByDescending(m => m.Id).ToList();//查詢資料庫中的 Customer 資料表，獲取客戶資料，按照 Id 屬性的降序排序。將這些資料存入 customers 變數中
+            var customers = db.Customer.OrderBy(m => m.Id).ToList();//查詢資料庫中的 Customer 資料表，獲取客戶資料，按照 Id 屬性的降序排序。將這些資料存入 customers 變數中
 
             List<Customer> customerList = new List<Customer>();//建立了一個空的 customerList 串列，用於存儲轉換後的客戶資料
             foreach (var customer in customers) //使用 foreach 迴圈遍歷 customers 中的每個客戶資料，將其轉換為 Customer 物件
@@ -51,8 +52,8 @@ namespace admin0222.Controllers
 
         }
 
-
         
+
         public ActionResult Create()
         {
             return View();
@@ -98,6 +99,18 @@ namespace admin0222.Controllers
 
             return RedirectToAction("Read");
         }
+
+        public ActionResult detailed(int id)
+        {
+            var db = new dbShoppingCarEntities();
+            var member = db.Customer.Where(m => m.Id == id).FirstOrDefault(); //傳回序列的第一個項目；如果找不到任何項目，則傳回預設值。
+            
+            return View(member);
+
+        }
+        
+        
+
 
         public ActionResult Delete(int id)
         {
